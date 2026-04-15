@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 
       invoice.payments.push(req.body);
       const totalPaid = invoice.payments.reduce((sum, p) => sum + (p.amount || 0), 0);
-      if (totalPaid >= invoice.finalAmount) {
+      if (totalPaid >= (invoice.finalAmount || 0)) {
         invoice.paymentStatus = 'Paid';
       } else if (totalPaid > 0) {
         invoice.paymentStatus = 'Partial';

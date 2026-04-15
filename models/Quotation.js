@@ -31,7 +31,7 @@ const QuotationSchema = new mongoose.Schema({
 
 QuotationSchema.pre('save', function (next) {
   this.updatedAt = Date.now();
-  if (!this.finalPrice) {
+  if (!this.finalPrice && this.basePrice != null) {
     this.finalPrice = this.basePrice - (this.discount || 0);
   }
   next();

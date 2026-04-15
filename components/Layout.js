@@ -22,7 +22,7 @@ export default function Layout({ children, title = 'PST Management System' }) {
   return (
     <>
       <Head>
-        <title>{title} | PSTourism</title>
+        <title>{`${title} | PSTourism`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0d6efd" />
         <link rel="manifest" href="/manifest.json" />
