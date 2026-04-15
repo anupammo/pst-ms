@@ -23,7 +23,7 @@ export default function Dashboard() {
     ? [
         { label: 'Total Quotations', value: stats.totalQuotations, color: 'primary', icon: '📋', href: '/quotations' },
         { label: 'Active Leads', value: stats.activeLeads, color: 'warning', icon: '🎯', href: '/leads' },
-        { label: 'Total Travellers', value: stats.totalTravellers, color: 'success', icon: '��', href: '/travellers' },
+        { label: 'Total Travellers', value: stats.totalTravellers, color: 'success', icon: '👥', href: '/travellers' },
         { label: 'Total Invoices', value: stats.totalInvoices, color: 'info', icon: '🧾', href: '/invoices' },
       ]
     : [];
