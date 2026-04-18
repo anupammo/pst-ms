@@ -24,34 +24,51 @@ export default function Layout({ children, title = 'PST Management System' }) {
       <Head>
         <title>{`${title} | PSTourism`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#0d6efd" />
+        <meta name="theme-color" content="#0f172a" />
+        <meta
+          name="description"
+          content="Modern PSTourism operations workspace for quotations, leads, travellers, communications, and invoicing."
+        />
         <link rel="manifest" href="/manifest.json" />
       </Head>
 
-      <div className="d-flex flex-column min-vh-100">
-        {/* Top Navbar */}
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
-          <div className="container-fluid">
-            <Link href="/" className="navbar-brand fw-bold">
-              ✈️ PSTourism MS
+      <div className="app-shell d-flex flex-column min-vh-100">
+        <nav className="navbar navbar-expand-lg navbar-dark app-navbar sticky-top">
+          <div className="container-fluid app-container">
+            <Link href="/" className="navbar-brand d-flex align-items-center gap-2">
+              <span className="brand-mark">✈️</span>
+              <span>
+                <span className="brand-title d-block">PSTourism</span>
+                <small className="brand-subtitle">Travel Ops Suite</small>
+              </span>
             </Link>
+
+            <div className="d-flex align-items-center gap-2 order-lg-2">
+              <span className="status-pill">2026-ready</span>
+            </div>
+
             <button
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
+
             <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ms-auto">
+              <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-1">
                 {navLinks.map((link) => (
                   <li key={link.href} className="nav-item">
                     <Link
                       href={link.href}
-                      className={`nav-link ${isActive(link.href) ? 'active fw-semibold' : ''}`}
+                      className={`nav-link nav-pill ${isActive(link.href) ? 'active fw-semibold' : ''}`}
                     >
-                      {link.icon} {link.label}
+                      <span className="me-1">{link.icon}</span>
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -60,18 +77,15 @@ export default function Layout({ children, title = 'PST Management System' }) {
           </div>
         </nav>
 
-        {/* Main content */}
-        <main className="flex-grow-1 bg-light">
-          <div className="container-fluid py-4 px-3 px-md-4">
-            {children}
-          </div>
+        <main className="flex-grow-1 app-main">
+          <div className="container-fluid app-container py-4 px-3 px-md-4">{children}</div>
         </main>
 
-        {/* Footer */}
-        <footer className="bg-dark text-white text-center py-3 mt-auto">
-          <small>
-            © {new Date().getFullYear()} PSTourism™️ — Unlocking Your Premium Travel Experience
-          </small>
+        <footer className="app-footer mt-auto">
+          <div className="container-fluid app-container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <small>© {new Date().getFullYear()} PSTourism. Built for premium travel operations.</small>
+            <small className="text-white-50">Reliable workflow, cleaner visibility, faster follow-up.</small>
+          </div>
         </footer>
       </div>
     </>

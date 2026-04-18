@@ -13,9 +13,9 @@ export default function Dashboard() {
       .then((r) => r.json())
       .then((data) => {
         if (data.success) setStats(data.data);
-        else setError(data.error);
+        else setError(data.error || 'Live metrics are temporarily unavailable.');
       })
-      .catch(() => setError('Failed to load dashboard data'))
+      .catch(() => setError('Live metrics are temporarily unavailable. Check your database connection and try again.'))
       .finally(() => setLoading(false));
   }, []);
 
@@ -35,14 +35,22 @@ export default function Dashboard() {
 
   return (
     <Layout title="Dashboard">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="mb-0 fw-bold">Dashboard</h2>
-          <p className="text-muted small mb-0">PSTourism Management System</p>
-        </div>
-        <div className="d-flex gap-2">
-          <Link href="/quotations/new" className="btn btn-primary btn-sm">+ New Quotation</Link>
-          <Link href="/leads/new" className="btn btn-outline-primary btn-sm">+ New Lead</Link>
+      <div className="dashboard-hero card border-0 mb-4">
+        <div className="card-body p-4 p-lg-5">
+          <div className="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
+            <div>
+              <p className="text-uppercase small fw-semibold mb-2 text-white-50">Operations command center</p>
+              <h2 className="mb-2 fw-bold">Dashboard</h2>
+              <p className="mb-0 text-white-50">Track quotations, leads, travellers, invoices, and team follow-ups from one workspace.</p>
+            </div>
+            <div className="text-lg-end">
+              <div className="hero-chip mb-3">● Live overview</div>
+              <div className="d-flex flex-wrap justify-content-lg-end gap-2">
+                <Link href="/quotations/new" className="btn btn-light btn-sm">+ New Quotation</Link>
+                <Link href="/leads/new" className="btn btn-outline-light btn-sm">+ New Lead</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -60,7 +68,7 @@ export default function Dashboard() {
             {summaryCards.map((card) => (
               <div key={card.label} className="col-6 col-md-3">
                 <Link href={card.href} className="text-decoration-none">
-                  <div className={`card border-0 shadow-sm bg-${card.color} text-white h-100`}>
+                  <div className={`card border-0 shadow-sm bg-${card.color} text-white h-100 metric-card`}>
                     <div className="card-body text-center py-3">
                       <div style={{ fontSize: '2rem' }}>{card.icon}</div>
                       <h3 className="fw-bold mb-0">{card.value}</h3>
