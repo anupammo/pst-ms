@@ -9,8 +9,12 @@ const QuotationSchema = new mongoose.Schema({
   quotationNumber: { type: String, unique: true },
   clientName: { type: String, required: true },
   contact: { type: String },
-  numberOfPax: { type: Number, required: true },
+  // keep a computed `numberOfPax` but store `adults` and `children` separately
+  adults: { type: Number, default: 0 },
+  children: { type: Number, default: 0 },
+  numberOfPax: { type: Number },
   numberOfRooms: { type: Number },
+  cancellationPolicy: { type: String },
   roomType: { type: String, enum: ['Standard', 'Deluxe', 'Premium'], default: 'Standard' },
   route: { type: String },
   tripDuration: { type: String },
@@ -20,6 +24,8 @@ const QuotationSchema = new mongoose.Schema({
   basePrice: { type: Number },
   discount: { type: Number, default: 0 },
   finalPrice: { type: Number },
+  // generated HTML version of the quotation for preview / print / storage
+  html: { type: String },
   vehicleType: { type: String },
   inclusions: [String],
   exclusions: [String],
@@ -33,6 +39,10 @@ QuotationSchema.pre('save', function (next) {
   this.updatedAt = Date.now();
   if (!this.finalPrice && this.basePrice != null) {
     this.finalPrice = this.basePrice - (this.discount || 0);
+  }
+  // compute total pax from adults + children when available
+  if (typeof this.adults === 'number' || typeof this.children === 'number') {
+    this.numberOfPax = (Number(this.adults) || 0) + (Number(this.children) || 0);
   }
   next();
 });
