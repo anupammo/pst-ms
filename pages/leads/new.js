@@ -32,9 +32,15 @@ export default function NewLead() {
 
   return (
     <Layout title="New Lead">
-      <div className="d-flex align-items-center mb-4">
-        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-3">← Back</button>
-        <h2 className="mb-0 fw-bold">🎯 New Lead</h2>
+      <div className="d-flex align-items-center mb-4 flex-wrap gap-2">
+        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-1">
+          <i className="bi bi-arrow-left me-1"></i>
+          Back
+        </button>
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-bullseye"></i></span>
+          New Lead
+        </h2>
       </div>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={handleSubmit}>
@@ -96,8 +102,8 @@ export default function NewLead() {
             </div>
           </div>
           <div className="card-footer bg-white">
-            <button type="submit" className="btn btn-warning text-dark me-2" disabled={loading}>
-              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : '💾 Save Lead'}
+            <button type="submit" className="btn btn-primary me-2" disabled={loading}>
+              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : <><i className="bi bi-floppy me-2"></i>Save Lead</>}
             </button>
             <button type="button" className="btn btn-outline-secondary" onClick={() => router.back()}>Cancel</button>
           </div>

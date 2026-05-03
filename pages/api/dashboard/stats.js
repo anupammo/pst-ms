@@ -1,4 +1,6 @@
 import connectDB from '../../../lib/mongodb';
+import { isMongoConnectionIssue, sendApiError, sendDemoFallback } from '../../../lib/api-error';
+import { getDemoDashboardData } from '../../../lib/demo-data';
 import Quotation from '../../../models/Quotation';
 import Traveller from '../../../models/Traveller';
 import Lead from '../../../models/Lead';
@@ -22,7 +24,7 @@ export default async function handler(req, res) {
         Lead.countDocuments({ status: { $in: ['New', 'Contacted', 'Interested'] } }),
       ]);
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       data: {
         totalQuotations,
@@ -35,6 +37,10 @@ export default async function handler(req, res) {
       },
     });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    if (isMongoConnectionIssue(error)) {
+      return sendDemoFallback(res, getDemoDashboardData());
+    }
+
+    return sendApiError(res, error);
   }
 }

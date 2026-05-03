@@ -107,7 +107,7 @@ export default function QuotationDetail() {
           ) : (
             <>
               <button onClick={handleSave} className="btn btn-success btn-sm" disabled={saving}>
-                {saving ? <span className="spinner-border spinner-border-sm" /> : '💾 Save'}
+                {saving ? <span className="spinner-border spinner-border-sm" /> : <><i className="bi bi-floppy me-1"></i>Save</>}
               </button>
               <button onClick={() => { setEditing(false); setForm({ ...quotation, inclusions: (quotation.inclusions||[]).join('\n'), exclusions: (quotation.exclusions||[]).join('\n') }); }} className="btn btn-outline-secondary btn-sm">Cancel</button>
             </>

@@ -28,9 +28,15 @@ export default function InvoicesList() {
 
   return (
     <Layout title="Invoices">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="mb-0 fw-bold">🧾 Invoices</h2>
-        <Link href="/invoices/new" className="btn btn-info text-dark">+ New Invoice</Link>
+      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-receipt-cutoff"></i></span>
+          Invoices
+        </h2>
+        <Link href="/invoices/new" className="btn btn-primary">
+          <i className="bi bi-plus-circle me-2"></i>
+          New Invoice
+        </Link>
       </div>
 
       {error && <div className="alert alert-danger">{error}</div>}

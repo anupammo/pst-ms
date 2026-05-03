@@ -29,9 +29,15 @@ export default function CommunicationsList() {
 
   return (
     <Layout title="Communications">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="mb-0 fw-bold">📢 Communications</h2>
-        <Link href="/communications/new" className="btn btn-secondary">+ New Communication</Link>
+      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-megaphone-fill"></i></span>
+          Communications
+        </h2>
+        <Link href="/communications/new" className="btn btn-secondary">
+          <i className="bi bi-plus-circle me-2"></i>
+          New Communication
+        </Link>
       </div>
 
       {error && <div className="alert alert-danger">{error}</div>}

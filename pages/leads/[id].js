@@ -82,7 +82,7 @@ export default function LeadDetail() {
             </>
           ) : (
             <>
-              <button onClick={handleSave} className="btn btn-success btn-sm" disabled={saving}>{saving ? <span className="spinner-border spinner-border-sm" /> : '💾 Save'}</button>
+              <button onClick={handleSave} className="btn btn-primary btn-sm" disabled={saving}>{saving ? <span className="spinner-border spinner-border-sm" /> : <><i className="bi bi-floppy me-1"></i>Save</>}</button>
               <button onClick={() => setEditing(false)} className="btn btn-outline-secondary btn-sm">Cancel</button>
             </>
           )}

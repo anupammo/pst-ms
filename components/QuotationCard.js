@@ -13,19 +13,21 @@ export default function QuotationCard({ quotation, onDelete }) {
 
   return (
     <div className="card shadow-sm h-100">
-      <div className="card-header d-flex justify-content-between align-items-center bg-white">
+      <div className="card-header d-flex justify-content-between align-items-center">
         <span className="fw-bold text-primary">{quotation.quotationNumber || 'Draft'}</span>
         <span className={`badge bg-${statusColors[quotation.status] || 'secondary'}`}>
           {quotation.status}
         </span>
       </div>
       <div className="card-body">
-        <h6 className="card-title mb-1">{quotation.clientName}</h6>
-        <p className="text-muted small mb-2">
-          📍 {quotation.destination || 'N/A'} &bull; {quotation.tripDuration || 'N/A'}
+        <h6 className="card-title mb-2">{quotation.clientName}</h6>
+        <p className="text-muted small mb-2 d-flex align-items-center gap-2">
+          <i className="bi bi-geo-alt"></i>
+          <span>{quotation.destination || 'N/A'} &bull; {quotation.tripDuration || 'N/A'}</span>
         </p>
-        <p className="text-muted small mb-2">
-          👥 {quotation.numberOfPax} Pax &bull; 🚗 {quotation.vehicleType || 'N/A'}
+        <p className="text-muted small mb-2 d-flex align-items-center gap-2">
+          <i className="bi bi-people"></i>
+          <span>{quotation.numberOfPax} Pax &bull; {quotation.vehicleType || 'N/A'}</span>
         </p>
         {quotation.finalPrice ? (
           <p className="fw-semibold text-success mb-1">
@@ -39,8 +41,9 @@ export default function QuotationCard({ quotation, onDelete }) {
             : ''}
         </p>
       </div>
-      <div className="card-footer bg-white border-top-0 d-flex gap-2">
+      <div className="card-footer border-top-0 d-flex gap-2">
         <Link href={`/quotations/${quotation._id}`} className="btn btn-sm btn-outline-primary flex-fill">
+          <i className="bi bi-arrow-right-circle me-1"></i>
           View
         </Link>
         {onDelete && (
@@ -48,6 +51,7 @@ export default function QuotationCard({ quotation, onDelete }) {
             className="btn btn-sm btn-outline-danger"
             onClick={() => onDelete(quotation._id)}
           >
+            <i className="bi bi-trash me-1"></i>
             Delete
           </button>
         )}

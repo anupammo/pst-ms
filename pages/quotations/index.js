@@ -40,9 +40,15 @@ export default function QuotationsList() {
 
   return (
     <Layout title="Quotations">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="mb-0 fw-bold">📋 Quotations</h2>
-        <Link href="/quotations/new" className="btn btn-primary">+ New Quotation</Link>
+      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-file-earmark-text"></i></span>
+          Quotations
+        </h2>
+        <Link href="/quotations/new" className="btn btn-primary">
+          <i className="bi bi-plus-circle me-2"></i>
+          New Quotation
+        </Link>
       </div>
 
       {error && <div className="alert alert-danger">{error}</div>}

@@ -34,9 +34,15 @@ export default function LeadsList() {
 
   return (
     <Layout title="Leads">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="mb-0 fw-bold">🎯 Leads</h2>
-        <Link href="/leads/new" className="btn btn-warning text-dark">+ New Lead</Link>
+      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-bullseye"></i></span>
+          Leads
+        </h2>
+        <Link href="/leads/new" className="btn btn-primary">
+          <i className="bi bi-plus-circle me-2"></i>
+          New Lead
+        </Link>
       </div>
 
       {error && <div className="alert alert-danger">{error}</div>}

@@ -75,9 +75,15 @@ export default function NewInvoice() {
 
   return (
     <Layout title="New Invoice">
-      <div className="d-flex align-items-center mb-4">
-        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-3">← Back</button>
-        <h2 className="mb-0 fw-bold">🧾 New Invoice</h2>
+      <div className="d-flex align-items-center mb-4 flex-wrap gap-2">
+        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-1">
+          <i className="bi bi-arrow-left me-1"></i>
+          Back
+        </button>
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-receipt-cutoff"></i></span>
+          New Invoice
+        </h2>
       </div>
       {error && <div className="alert alert-danger">{error}</div>}
 
@@ -147,7 +153,7 @@ export default function NewInvoice() {
 
           <div className="col-12">
             <div className="card shadow-sm">
-              <div className="card-header bg-warning text-dark"><h6 className="mb-0">💰 Payment Details</h6></div>
+              <div className="card-header bg-warning text-dark"><h6 className="mb-0"><i className="bi bi-cash-coin me-2"></i>Payment Details</h6></div>
               <div className="card-body">
                 <div className="row g-3">
                   <div className="col-md-3">
@@ -190,8 +196,8 @@ export default function NewInvoice() {
           </div>
 
           <div className="col-12">
-            <button type="submit" className="btn btn-info text-dark btn-lg me-2" disabled={loading}>
-              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : '💾 Create Invoice'}
+            <button type="submit" className="btn btn-primary me-2" disabled={loading}>
+              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : <><i className="bi bi-floppy me-2"></i>Create Invoice</>}
             </button>
             <button type="button" className="btn btn-outline-secondary btn-lg" onClick={() => router.back()}>Cancel</button>
           </div>

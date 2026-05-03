@@ -28,16 +28,22 @@ export default function NewCommunication() {
   };
 
   const templates = {
-    Offer: `🌟 Special Offer Alert! 🌟\n\nBook your dream holiday package with PSTourism™️ and get exclusive discounts!\n\n📍 Destination: [Destination]\n💰 Starting from: ₹[Amount]\n📅 Valid till: [Date]\n\nCall us: [Phone]\nVisit: www.pstourism.in\n\nTeam PST 🙏`,
-    Greeting: `🎉 Warm Greetings from PSTourism™️!\n\nDear [Name],\n\nWishing you a very Happy [Occasion]! 🎊\n\nMay this special day bring you joy and wonderful memories.\n\nWe look forward to being part of your travel journeys!\n\nWarm Regards,\nTeam PST\nPSTourism™️`,
-    Update: `📢 Update from PSTourism™️\n\nDear Travellers,\n\n[Your update content here]\n\nFor more information, visit: www.pstourism.in\n\nTeam PST 🙏`,
+    Offer: `Special Offer from PSTourism\n\nBook your dream holiday package with PSTourism and enjoy exclusive pricing.\n\nDestination: [Destination]\nStarting from: ₹[Amount]\nValid till: [Date]\n\nCall us: [Phone]\nVisit: www.pstourism.in\n\nTeam PST`,
+    Greeting: `Warm Greetings from PSTourism\n\nDear [Name],\n\nWishing you a very Happy [Occasion].\n\nMay this special day bring you joy and wonderful memories.\n\nWe look forward to being part of your travel journeys.\n\nWarm regards,\nTeam PST\nPSTourism`,
+    Update: `Update from PSTourism\n\nDear Travellers,\n\n[Your update content here]\n\nFor more information, visit: www.pstourism.in\n\nTeam PST`,
   };
 
   return (
     <Layout title="New Communication">
-      <div className="d-flex align-items-center mb-4">
-        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-3">← Back</button>
-        <h2 className="mb-0 fw-bold">📢 New Communication</h2>
+      <div className="d-flex align-items-center mb-4 flex-wrap gap-2">
+        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-1">
+          <i className="bi bi-arrow-left me-1"></i>
+          Back
+        </button>
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-megaphone-fill"></i></span>
+          New Communication
+        </h2>
       </div>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={handleSubmit}>
@@ -93,7 +99,7 @@ export default function NewCommunication() {
           </div>
           <div className="card-footer bg-white">
             <button type="submit" className="btn btn-secondary me-2" disabled={loading}>
-              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : '💾 Save Communication'}
+              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : <><i className="bi bi-floppy me-2"></i>Save Communication</>}
             </button>
             <button type="button" className="btn btn-outline-secondary" onClick={() => router.back()}>Cancel</button>
           </div>

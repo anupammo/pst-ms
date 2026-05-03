@@ -76,9 +76,15 @@ export default function NewQuotation() {
 
   return (
     <Layout title="New Quotation">
-      <div className="d-flex align-items-center mb-4">
-        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-3">← Back</button>
-        <h2 className="mb-0 fw-bold">📋 New Quotation</h2>
+      <div className="d-flex align-items-center mb-4 flex-wrap gap-2">
+        <button onClick={() => router.back()} className="btn btn-outline-secondary btn-sm me-1">
+          <i className="bi bi-arrow-left me-1"></i>
+          Back
+        </button>
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-file-earmark-text"></i></span>
+          New Quotation
+        </h2>
       </div>
 
       {error && <div className="alert alert-danger">{error}</div>}
@@ -89,7 +95,7 @@ export default function NewQuotation() {
           <div className="col-12">
             <div className="card shadow-sm">
               <div className="card-header bg-primary text-white">
-                <h6 className="mb-0">👤 Client Details</h6>
+                <h6 className="mb-0"><i className="bi bi-person-vcard me-2"></i>Client Details</h6>
               </div>
               <div className="card-body">
                 <div className="row g-3">
@@ -126,7 +132,7 @@ export default function NewQuotation() {
           <div className="col-12">
             <div className="card shadow-sm">
               <div className="card-header bg-success text-white">
-                <h6 className="mb-0">📍 Trip Details</h6>
+                <h6 className="mb-0"><i className="bi bi-geo-alt me-2"></i>Trip Details</h6>
               </div>
               <div className="card-body">
                 <div className="row g-3">
@@ -159,7 +165,7 @@ export default function NewQuotation() {
           <div className="col-12">
             <div className="card shadow-sm">
               <div className="card-header bg-warning text-dark">
-                <h6 className="mb-0">💰 Pricing</h6>
+                <h6 className="mb-0"><i className="bi bi-cash-coin me-2"></i>Pricing</h6>
               </div>
               <div className="card-body">
                 <div className="row g-3">
@@ -192,7 +198,7 @@ export default function NewQuotation() {
           <div className="col-md-6">
             <div className="card shadow-sm h-100">
               <div className="card-header bg-success text-white">
-                <h6 className="mb-0">✅ Inclusions</h6>
+                <h6 className="mb-0"><i className="bi bi-check2-circle me-2"></i>Inclusions</h6>
               </div>
               <div className="card-body">
                 <textarea
@@ -211,7 +217,7 @@ export default function NewQuotation() {
           <div className="col-md-6">
             <div className="card shadow-sm h-100">
               <div className="card-header bg-danger text-white">
-                <h6 className="mb-0">❌ Exclusions</h6>
+                <h6 className="mb-0"><i className="bi bi-x-circle me-2"></i>Exclusions</h6>
               </div>
               <div className="card-body">
                 <textarea
@@ -255,7 +261,7 @@ export default function NewQuotation() {
 
           <div className="col-12">
             <button type="submit" className="btn btn-primary btn-lg me-2" disabled={loading}>
-              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : '💾 Create Quotation'}
+              {loading ? <><span className="spinner-border spinner-border-sm me-2" />Saving...</> : <><i className="bi bi-floppy me-2"></i>Create Quotation</>}
             </button>
             <button type="button" className="btn btn-outline-secondary btn-lg" onClick={() => router.back()}>
               Cancel

@@ -41,31 +41,31 @@ Number of Pax: ${quotation.numberOfPax}
 Number of Rooms: ${quotation.numberOfRooms || '[No. of Rooms]'}
 Route / Pickup-Drop: (${quotation.route || '[Route]'})
 
-📍 Trip Itinerary
+Trip Itinerary
 ${itineraryText}
 
-💰 Package Pricing
+Package Pricing
 Base Package Price: ₹ ${quotation.basePrice ? quotation.basePrice.toLocaleString('en-IN') : '[Amount]'}
 Discount (if any): ₹ ${quotation.discount ? quotation.discount.toLocaleString('en-IN') : '0'}
-✅ Final Package Cost: ₹ ${quotation.finalPrice ? quotation.finalPrice.toLocaleString('en-IN') : '[Final Amount]'}
+Final Package Cost: ₹ ${quotation.finalPrice ? quotation.finalPrice.toLocaleString('en-IN') : '[Final Amount]'}
 
-🧾 Booking and Payment Policy
+Booking and Payment Policy
 40% Advance: ₹ ${advance.toLocaleString('en-IN')}
 60% Payable after check-in on Day 1
-🔹 Pay ₹ ${advance.toLocaleString('en-IN')} now to confirm your booking.
+Pay ₹ ${advance.toLocaleString('en-IN')} now to confirm your booking.
 
-✅ Inclusions
+Inclusions
 ${inclusions.map((i) => `- ${i}`).join('\n')}
 
-❌ Exclusions
+Exclusions
 ${exclusions.map((e) => `- ${e}`).join('\n')}
 
-ℹ️ Want to Know About Us?
+Know More About Us
 About Us: https://www.pstourism.in/about-us
 Google Reviews: https://maps.app.goo.gl/2iHbAFRBGeCRVwZi8
 Explore Our Other Holiday Packages: https://www.pstourism.in/packages
 
-📍 Our Offices
+Our Offices
 Kolkata: Garia, Bidhan Pally, Near Gitanjali Metro, Kolkata – 700084
 Bankura: Palasdanga, Bankura – 722208
 
@@ -76,7 +76,7 @@ PSTourism™️ — Unlocking Your Premium Travel Experience`;
   return (
     <div className="card border-primary">
       <div className="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-        <span className="fw-bold">📋 Form-1A Preview</span>
+        <span className="fw-bold"><i className="bi bi-file-earmark-text me-2"></i>Form-1A Preview</span>
         <button
           className="btn btn-sm btn-light"
           onClick={() => {
@@ -84,7 +84,8 @@ PSTourism™️ — Unlocking Your Premium Travel Experience`;
             alert('Quotation text copied to clipboard!');
           }}
         >
-          📋 Copy Text
+          <i className="bi bi-copy me-1"></i>
+          Copy Text
         </button>
       </div>
       <div className="card-body">

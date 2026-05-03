@@ -31,9 +31,15 @@ export default function TravellersList() {
 
   return (
     <Layout title="Travellers">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="mb-0 fw-bold">👥 Travellers</h2>
-        <Link href="/travellers/new" className="btn btn-success">+ Add Traveller</Link>
+      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <h2 className="mb-0 fw-bold d-flex align-items-center gap-2">
+          <span className="section-icon"><i className="bi bi-people"></i></span>
+          Travellers
+        </h2>
+        <Link href="/travellers/new" className="btn btn-primary">
+          <i className="bi bi-person-plus me-2"></i>
+          Add Traveller
+        </Link>
       </div>
 
       {error && <div className="alert alert-danger">{error}</div>}

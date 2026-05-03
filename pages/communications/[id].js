@@ -63,7 +63,7 @@ export default function CommunicationDetail() {
             </>
           ) : (
             <>
-              <button onClick={handleSave} className="btn btn-success btn-sm" disabled={saving}>{saving ? <span className="spinner-border spinner-border-sm" /> : '💾 Save'}</button>
+              <button onClick={handleSave} className="btn btn-primary btn-sm" disabled={saving}>{saving ? <span className="spinner-border spinner-border-sm" /> : <><i className="bi bi-floppy me-1"></i>Save</>}</button>
               <button onClick={() => setEditing(false)} className="btn btn-outline-secondary btn-sm">Cancel</button>
             </>
           )}
@@ -116,8 +116,8 @@ export default function CommunicationDetail() {
               <div className="d-flex gap-2 mb-3 flex-wrap">
                 <span className="badge bg-primary fs-6">{comm.type}</span>
                 <span className="badge bg-secondary fs-6">{comm.status}</span>
-                <span className="badge bg-info text-dark fs-6">👥 {comm.targetAudience}</span>
-                {comm.scheduledDate && <span className="badge bg-warning text-dark fs-6">📅 {format(new Date(comm.scheduledDate), 'dd MMM yyyy HH:mm')}</span>}
+                <span className="badge bg-info text-dark fs-6"><i className="bi bi-people me-1"></i>{comm.targetAudience}</span>
+                {comm.scheduledDate && <span className="badge bg-warning text-dark fs-6"><i className="bi bi-calendar-event me-1"></i>{format(new Date(comm.scheduledDate), 'dd MMM yyyy HH:mm')}</span>}
               </div>
               <div className="border rounded p-3 bg-light">
                 <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: 0 }}>
@@ -126,7 +126,8 @@ export default function CommunicationDetail() {
               </div>
               <div className="mt-3 d-flex gap-2">
                 <button className="btn btn-sm btn-outline-secondary" onClick={() => { navigator.clipboard.writeText(comm.content); alert('Copied!'); }}>
-                  📋 Copy Content
+                  <i className="bi bi-copy me-1"></i>
+                  Copy Content
                 </button>
               </div>
               {comm.tags?.length > 0 && (

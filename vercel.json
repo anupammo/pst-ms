@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "env": {
-    "MONGODB_URI": "@mongodb_uri"
-  }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs"
 }
